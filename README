@@ -1,1 +1,13 @@
-obf
+
+$ erl
+Erlang R14B02 (erts-5.8.3) [source] [smp:2:2] [rq:2] [async-threads:0] [hipe] [kernel-poll:false]
+
+Eshell V5.8.3  (abort with ^G)
+1> c(onion).
+{ok,onion}
+2> onion:run(5).
+5
+3> onion:run(10).
+55
+4> 
+
