@@ -1,7 +1,7 @@
 -module(w).
 -compile(export_all).
 %% to get the forms for final file, uncomment below and recompile:
-%%-compile({parse_transform, print_forms}).
+-compile({parse_transform, print_forms}).
 -import(lists, [keysearch/3, map/2, splitwith/2]).
 
 parse(S) ->
