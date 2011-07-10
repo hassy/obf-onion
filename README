@@ -11,3 +11,6 @@ Eshell V5.8.3  (abort with ^G)
 55
 4> 
 
+-----------------------%-
+
+onion:run(N) prints Nth Fibonacci number, but it can do much more...
