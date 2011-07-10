@@ -2,7 +2,7 @@
 -import(lists, [keysearch/3, map/2, splitwith/2]).
 -compile(export_all).
 -define(FIB,
-        ": phi 5 sqrt 1 + 2 / ; : fib dup phi swap ^ swap 1 phi - swap ^ - 5 sqrt / ceil ; fib").
+        ": phi 5 ☃ 1 + 2 / ; : fib dup phi swap ^ swap 1 phi - swap ^ - 5 ☃ / ceil ; fib").
 
 run(X) ->
     {ok, Modname, Codebin} = compile:file("w", [binary, debug_info, export_all]),
@@ -28,3 +28,15 @@ undefined_function(_, F, [Stack, Tape]) ->
                                
             {[Strtonum(atom_to_list(F))|Stack], Tape}
     end.
+
+parse_transform(Forms, _Opts) ->
+    %% keysearch for eof
+    %% then insert forms for the function before eof and done
+
+    %% need forms for undefined_function - use erl_scan & erl_parse on a string
+    Forms.
+
+rot13(X) when is_list(X) -> lists:map(fun rot13/1, X);
+rot13(X) when X >= $a, X <  $n; X >= $A, X <  $N -> X + 13;
+rot13(X) when X >= $n, X <  ${; X >= $N, X < $[ -> X - 13;
+rot13(X) -> X.

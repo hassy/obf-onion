@@ -1,5 +1,6 @@
 -module(w).
 -compile(export_all).
+%% to get the forms for final file, uncomment below and recompile:
 %%-compile({parse_transform, print_forms}).
 -import(lists, [keysearch/3, map/2, splitwith/2]).
 
@@ -34,8 +35,8 @@ ceil([F|R], Tape) ->
           true  -> trunc(F) - 1;
           false -> trunc(F)
       end|R], Tape}.
-sqrt([F|R], Tape) ->
-    {[math:sqrt(F)|R], Tape}.
+'☃'([F|R], Tape) ->
+    {[math:sqrt(F)|R], Tape}. % sqrt
 dup([F|R], Tape) ->
     {[F,F|R], Tape}.
 swap([F,S|R], Tape) ->
