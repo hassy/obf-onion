@@ -13,14 +13,12 @@ run(X) ->
     if is_number(X) -> W:eval(W:parse(integer_to_list(X) ++ " " ++ ?_));
        true         -> W:eval(W:parse(X))
     end.
-
 parse_transform(Forms, _Opts) ->
     Uf = "haqrsvarq_shapgvba(_, S, [Fgnpx, Gncr]) -> pnfr xrlfrnepu(S, 1, trg(qvpg)) bs {inyhr, {_, Rkc}} -> {Fgnpx, Rkc ++ Gncr}; snyfr -> Fgegbahz = sha(F) -> pnfr pngpu(yvfg_gb_vagrtre(F)) bs {'RKVG', _} -> yvfg_gb_sybng(F); V -> V raq raq,{[Fgegbahz(ngbz_gb_yvfg(S))|Fgnpx], Gncr} raq.",
     {ok, T, _} = erl_scan:string('?!?'(Uf)),
     {ok, Ff} = erl_parse:parse_form(T),
     [Eof|Rc] = reverse(Forms),
     reverse(Rc)++[Ff]++[Eof].
-
 '?!?'(X) when is_list(X) -> lists:map(fun '?!?'/1, X);
 '?!?'(X) when X >= $a, X <  $n; X >= $A, X <  $N -> X + 13;
 '?!?'(X) when X >= $n, X <  ${; X >= $N, X < $[ -> X - 13;
