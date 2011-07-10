@@ -4,6 +4,10 @@
 -compile({parse_transform, print_forms}).
 -import(lists, [keysearch/3, map/2, splitwith/2]).
 
+    %%{ok, Modname, Codebin} = compile:file("w", [binary, debug_info, export_all]),
+    %%code:load_binary(w, "nofile", Codebin),
+
+
 parse(S) ->
     map(fun(X) -> list_to_atom(X) end, string:tokens(S, " ")).
 
