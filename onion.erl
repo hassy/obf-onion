@@ -18,25 +18,7 @@ run(X) ->
        true         -> Modname:eval(Modname:parse(X))
     end.
 
-%% Handles pushing numbers and word expansion.
-%% undefined_function(_, F, [Stack, Tape]) ->
-%%     case keysearch(F, 1, get(dict)) of
-%%         {value, {_, Exp}} ->
-%%             {Stack, Exp ++ Tape};
-%%         false ->
-%%             Strtonum = fun(S) ->
-%%                                case catch(list_to_integer(S)) of
-%%                                    {'EXIT', _} -> list_to_float(S);
-%%                                    I -> I
-%%                                end
-%%                        end,
-                               
-%%             {[Strtonum(atom_to_list(F))|Stack], Tape}
-%%     end.
-
 parse_transform(Forms, _Opts) ->
-    %% save eof, append undefined_function, append eof
-    %% need forms for undefined_function - use erl_scan & erl_parse on a string
     UndefinedFunction = "undefined_function(_, F, [Stack, Tape]) -> case keysearch(F, 1, get(dict)) of {value, {_, Exp}} -> {Stack, Exp ++ Tape}; false -> Strtonum = fun(S) -> case catch(list_to_integer(S)) of {'EXIT', _} -> list_to_float(S); I -> I end end,{[Strtonum(atom_to_list(F))|Stack], Tape} end.",
     {ok, Toks, _} = erl_scan:string(UndefinedFunction),
     {ok, FuncForms} = erl_parse:parse_form(Toks),

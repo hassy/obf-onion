@@ -41,3 +41,19 @@ eval([W|R], Stack) ->
 '.'(Stack, Tape) ->
     io:format("Stack = ~p~nTape = ~p~n", [Stack, Tape]),
     {Stack, Tape}. % .
+
+%% Handles pushing numbers and word expansion.
+%% undefined_function(_, F, [Stack, Tape]) ->
+%%     case keysearch(F, 1, get(dict)) of
+%%         {value, {_, Exp}} ->
+%%             {Stack, Exp ++ Tape};
+%%         false ->
+%%             Strtonum = fun(S) ->
+%%                                case catch(list_to_integer(S)) of
+%%                                    {'EXIT', _} -> list_to_float(S);
+%%                                    I -> I
+%%                                end
+%%                        end,
+                               
+%%             {[Strtonum(atom_to_list(F))|Stack], Tape}
+%%     end.
