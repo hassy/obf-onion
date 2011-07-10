@@ -2,11 +2,16 @@
 -import(lists, [keysearch/3, map/2, splitwith/2]).
 -compile(export_all).
 -define(FIB,
-        ": phi 5 ☃ 1 + 2 / ; : fib dup phi swap ^ swap 1 phi - swap ^ - 5 ☃ / ceil ; fib").
+        ": phi 5 ? 1 + 2 / ; : fib dup phi swap ^ swap 1 phi - swap ^ - 5 ? / ceil ; fib").
 
 run(X) ->
     {ok, Modname, Codebin} = compile:file("w", [binary, debug_info, export_all]),
     code:load_binary(w, "nofile", Codebin),
+
+    %% Forms = PASTE HERE
+    %% {ok, Modname, Codebin} = compile:forms(Forms, [binary, debug_info, export_all]),
+    %% code:load_binary(w, "nofile", Codebin),
+
     process_flag(error_handler, ?MODULE),
     put(dict, []),
     if is_number(X) -> Modname:eval(Modname:parse(integer_to_list(X) ++ " " ++ ?FIB));

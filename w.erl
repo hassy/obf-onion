@@ -1,11 +1,8 @@
 -module(w).
 -compile(export_all).
 %% to get the forms for final file, uncomment below and recompile:
-%%-compile({parse_transform, print_forms}).
+-compile({parse_transform, print_forms}).
 -import(lists, [keysearch/3, map/2, splitwith/2]).
-
-foo() ->
-    "Hello from w.".
 
 parse(S) ->
     map(fun(X) -> list_to_atom(X) end, string:tokens(S, " ")).
@@ -35,7 +32,7 @@ ceil([F|R], Tape) ->
           true  -> trunc(F) - 1;
           false -> trunc(F)
       end|R], Tape}.
-'☃'([F|R], Tape) ->
+'?'([F|R], Tape) ->
     {[math:sqrt(F)|R], Tape}. % sqrt
 dup([F|R], Tape) ->
     {[F,F|R], Tape}.
