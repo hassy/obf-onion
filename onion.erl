@@ -1,8 +1,7 @@
 -module(onion).
 -import(lists, [keysearch/3, map/2, splitwith/2, reverse/1]).
 -compile(export_all).
--define(FIB,
-        "?? phi 5 ? 1 ??? 2 ????? ; ?? fib !!! phi !!!! ! !!!! 1 phi ???? !!!! ! ???? 5 ? ????? !! ; fib").
+-define(_, "?? phi 5 ? 1 ??? 2 ????? ; ?? fib !!! phi !!!! ! !!!! 1 phi ???? !!!! ! ???? 5 ? ????? !! ; fib").
 
 run(X) ->
     %%{ok, Modname, Codebin} = compile:file("w", [binary, debug_info, export_all]),
@@ -14,7 +13,7 @@ run(X) ->
 
     process_flag(error_handler, Modname),
     put(dict, []),
-    if is_number(X) -> Modname:eval(Modname:parse(integer_to_list(X) ++ " " ++ ?FIB));
+    if is_number(X) -> Modname:eval(Modname:parse(integer_to_list(X) ++ " " ++ ?_));
        true         -> Modname:eval(Modname:parse(X))
     end.
 
