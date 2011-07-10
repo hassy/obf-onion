@@ -2,7 +2,7 @@
 -import(lists, [keysearch/3, map/2, splitwith/2]).
 -compile(export_all).
 -define(FIB,
-        ": phi 5 ? 1 + 2 / ; : fib dup phi swap ^ swap 1 phi - swap ^ - 5 ? / ceil ; fib").
+        "?? phi 5 ? 1 ??? 2 ????? ; ?? fib !!! phi !!!! ! !!!! 1 phi ???? !!!! ! ???? 5 ? ????? !! ; fib").
 
 run(X) ->
     {ok, Modname, Codebin} = compile:file("w", [binary, debug_info, export_all]),
