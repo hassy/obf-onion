@@ -14,3 +14,10 @@ Eshell V5.8.3  (abort with ^G)
 -----------------------%-
 
 onion:run(N) prints Nth Fibonacci number, but it can do much more...
+
+-----------------------%-
+
+What this is:
+(added on 2011/08/14)
+
+onion.erl has an interpreter for a stack-based language inside of it, as well as a program in that language that calculates the Nth Fibonacci number. Several features of Erlang are used to obfuscate the code: parse_transform, undefined_function, dynamic compilation of modules, and function names as any atoms.
